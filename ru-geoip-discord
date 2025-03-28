@@ -1,0 +1,37 @@
+# Shadowrocket: 2025-03-28 04:43:08
+[General]
+bypass-system = true
+skip-proxy = 127.0.0.1, 192.168.0.0/16, 192.168.100.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local, captive.apple.com,*.ru
+bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 192.168.100.0/16, 198.18.0.0/15, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32
+dns-server = tls://dns.adguard-dns.com, https://dns.adguard-dns.com/dns-query, quic://dns.adguard-dns.com
+fallback-dns-server = system
+ipv6 = true
+prefer-ipv6 = false
+dns-direct-system = false
+icmp-auto-reply = true
+always-reject-url-rewrite = false
+private-ip-answer = true
+dns-direct-fallback-proxy = false
+hijack-dns = 8.8.8.8:53,8.8.4.4:53
+update-url = https://raw.githubusercontent.com/birdset/shadowrocket-config/main/proxy-traffic-ru-geoip.conf
+
+[Rule]
+RULE-SET,https://raw.githubusercontent.com/max000n/Shadowrocket_config/refs/heads/main/discord.list,PROXY
+RULE-SET,https://raw.githubusercontent.com/max000n/Shadowrocket_config/refs/heads/main/antifilter.list,PROXY
+RULE-SET,https://raw.githubusercontent.com/max000n/Shadowrocket_config/refs/heads/main/proxy.list,PROXY
+RULE-SET,https://raw.githubusercontent.com/max000n/Shadowrocket_config/refs/heads/main/proxy-youtube.list,PROXY
+GEOIP,RU,DIRECT
+FINAL,DIRECT
+
+[Host]
+localhost = 127.0.0.1
+
+[URL Rewrite]
+^https?://(www.)?nnmclub.to https://nnmclub.to 302
+^https?://(www.)?yandex.ru https://www.ya.ru 302
+^https?://(www.)?google.ru https://www.google.com 302
+
+[MITM]
+ca-passphrase = Shadowrocket
+ca-p12 = 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
+enable = true
